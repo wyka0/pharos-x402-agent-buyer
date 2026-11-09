@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment files — NEVER commit secrets.
+# Every dotenv file is ignored except the sanitized example.
+.env
+.env.*
+!.env.example
+
+# Runtime journals / receipt stores / generated evidence
+.data/
+evidence/raw/
+
+# Test coverage
+coverage/
+
+# Build info
+*.tsbuildinfo
+next-env.d.ts
+
+# OS noise
+.DS_Store
+Thumbs.db

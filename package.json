@@ -1,0 +1,34 @@
+{
+  "name": "pharos-x402-agent-buyer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Autonomous x402 Buyer Agent on Pharos Atlantic Testnet (chainId 688689) - budget-gated, ROI-ranked, idempotent micropayment agent with self-hosted paywalled endpoints.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "verify:onchain": "tsx scripts/verify-onchain.ts"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.62.0",
+    "next": "^15.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "viem": "^2.30.0",
+    "wagmi": "^2.14.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "dotenv": "^16.4.7",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}

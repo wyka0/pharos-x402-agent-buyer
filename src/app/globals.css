@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-plane-bg: #07090d;
+  --color-plane-panel: #0d1117;
+  --color-plane-border: #1c2530;
+  --color-plane-accent: #34d399;
+  --color-plane-muted: #8b98a9;
+  --font-mono-stack: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(52, 211, 153, 0.07), transparent 60%),
+    radial-gradient(900px 420px at 0% 0%, rgba(96, 165, 250, 0.05), transparent 55%),
+    var(--color-plane-bg);
+  color: #e6edf3;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0e14;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3a4b;
+}
+
+.mono {
+  font-family: var(--font-mono-stack);
+}
+
+.glow-accent {
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.25), 0 0 24px rgba(52, 211, 153, 0.08);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}

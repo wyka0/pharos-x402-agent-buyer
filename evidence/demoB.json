@@ -1,0 +1,591 @@
+{
+  "taskRunId": "live-demo-b-1794181438546",
+  "title": "Full Deep-Dive + MEV + Institutional Alpha Sweep",
+  "description": "Ambitious sweep under a 0.20 USDC budget with a 0.18 USDC per-call cap: audit, MEV simulation, and whale telemetry — expected to halt on budget/cap limits.",
+  "status": "HALTED_BUDGET_EXCEEDED",
+  "mode": "live",
+  "purchases": [
+    {
+      "stepIndex": 0,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/security-audit",
+      "label": "Security Audit",
+      "whatItBought": "Contract bytecode vulnerability telemetry: risk score, SWC-classified findings, gas hotspots.",
+      "priceRaw": "100000",
+      "priceUSDC": "0.10",
+      "intentId": "0x8ebc55e61c572db3d5dc3609dd5c8f6919d39bc0861d9776eb3b659557c86e83",
+      "txHash": "0x9847ad7c422f919cf631378c4a35648bda530d5a4850ea11355229e7f7bcdec7",
+      "blockNumber": "32495238",
+      "explorerUrl": "https://atlantic.pharosscan.xyz/tx/0x9847ad7c422f919cf631378c4a35648bda530d5a4850ea11355229e7f7bcdec7",
+      "attempt": 1,
+      "serverReplay": false,
+      "quoteCommitment": "0x16444888d27df51c48ffb3198613e88770bb7aee72b055dd1a17e30b0e8f84b3",
+      "settlementCommitment": "0x91878d774d7a1b89bef8e82c9d963417a3a96c9b35cfd00244a3bf6e6b4ac93b",
+      "data": {
+        "resource": "security-audit",
+        "contractUnderReview": "0x8ce8ccc4d8ef8ab496cf087836ff0f8711226487",
+        "bytecodeHash": "0x4c4cd9ca130858e95bdeaa41183a91db64099725254ba22dae055fc7ec316677",
+        "riskScore": 43,
+        "verdict": "NEEDS_REMEDIATION",
+        "findings": [
+          {
+            "id": "F-1",
+            "severity": "high",
+            "swcId": "SWC-106",
+            "title": "Unbounded loop allows gas griefing",
+            "confidence": 0.61
+          },
+          {
+            "id": "F-2",
+            "severity": "informational",
+            "swcId": "SWC-119",
+            "title": "Unsafe ERC-20 return-value assumption",
+            "confidence": 0.9
+          },
+          {
+            "id": "F-3",
+            "severity": "high",
+            "swcId": "SWC-102",
+            "title": "Event missing indexed parameter",
+            "confidence": 0.95
+          },
+          {
+            "id": "F-4",
+            "severity": "low",
+            "swcId": "SWC-104",
+            "title": "Event missing indexed parameter",
+            "confidence": 0.6
+          },
+          {
+            "id": "F-5",
+            "severity": "low",
+            "swcId": "SWC-134",
+            "title": "Unbounded loop allows gas griefing",
+            "confidence": 0.95
+          }
+        ],
+        "gasHotspots": [
+          {
+            "fn": "redeem",
+            "deltaPct": 14
+          },
+          {
+            "fn": "redeem",
+            "deltaPct": 5
+          },
+          {
+            "fn": "swap",
+            "deltaPct": 14
+          }
+        ]
+      }
+    }
+  ],
+  "refusals": [
+    {
+      "stepIndex": 1,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/mev-simulation",
+      "label": "MEV Simulation",
+      "whatItBought": "Slippage and sandwich-risk simulation for a reference trade route.",
+      "priceRaw": "200000",
+      "priceUSDC": "0.20",
+      "code": "REFUSED_OVER_PER_CALL_CAP",
+      "message": "Refused: price 200000 raw exceeds per-call cap 180000 raw.",
+      "roi": {
+        "priceUSDC": 0.2,
+        "expectedUtility": 0.35,
+        "roi": 1.7499999999999998,
+        "signalsPerUSDC": 75,
+        "source": "catalog",
+        "verdict": "APPROVED",
+        "message": "Utility approved: expected 0.35 USDC-equivalent >= price 0.20 USDC (ROI 1.75x, 75 signals/USDC, source: catalog)."
+      }
+    },
+    {
+      "stepIndex": 2,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+      "label": "Whale Telemetry",
+      "whatItBought": "Pharos Atlantic top-holder concentration and liquidity flow analytics.",
+      "priceRaw": "150000",
+      "priceUSDC": "0.15",
+      "code": "REFUSED_OVER_TOTAL_BUDGET",
+      "message": "Refused: committed 100000 + reserved 0 + price 150000 = 250000 raw exceeds total budget 200000 raw.",
+      "roi": {
+        "priceUSDC": 0.15,
+        "expectedUtility": 0.3,
+        "roi": 2,
+        "signalsPerUSDC": 133.33333333333334,
+        "source": "catalog",
+        "verdict": "APPROVED",
+        "message": "Utility approved: expected 0.30 USDC-equivalent >= price 0.15 USDC (ROI 2.00x, 133 signals/USDC, source: catalog)."
+      }
+    }
+  ],
+  "ledger": [
+    {
+      "seq": 1,
+      "stepIndex": 0,
+      "timestamp": "2026-11-08T23:44:00.687Z",
+      "intentId": "0x8ebc55e61c572db3d5dc3609dd5c8f6919d39bc0861d9776eb3b659557c86e83",
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/security-audit",
+      "endpointLabel": "Security Audit",
+      "whatItBought": "Contract bytecode vulnerability telemetry: risk score, SWC-classified findings, gas hotspots.",
+      "decision": "PAID",
+      "debit": true,
+      "priceRaw": "100000",
+      "priceUSDC": "0.10",
+      "txHash": "0x9847ad7c422f919cf631378c4a35648bda530d5a4850ea11355229e7f7bcdec7",
+      "blockNumber": "32495238",
+      "explorerUrl": "https://atlantic.pharosscan.xyz/tx/0x9847ad7c422f919cf631378c4a35648bda530d5a4850ea11355229e7f7bcdec7",
+      "runningTotalRaw": "100000",
+      "runningTotalUSDC": "0.10",
+      "remainingBudgetRaw": "100000",
+      "remainingBudgetUSDC": "0.10",
+      "settlementCommitment": "0x91878d774d7a1b89bef8e82c9d963417a3a96c9b35cfd00244a3bf6e6b4ac93b",
+      "message": "Settled 0.10 USDC on Pharos Atlantic."
+    },
+    {
+      "seq": 2,
+      "stepIndex": 1,
+      "timestamp": "2026-11-08T23:44:00.843Z",
+      "intentId": "0xd01d41abf5330eb0b1fbebf0815a89c3a900d50d294717c279d43e58221b17ca",
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/mev-simulation",
+      "endpointLabel": "MEV Simulation",
+      "whatItBought": "Slippage and sandwich-risk simulation for a reference trade route.",
+      "decision": "REFUSED_OVER_PER_CALL_CAP",
+      "debit": false,
+      "priceRaw": "200000",
+      "priceUSDC": "0.20",
+      "runningTotalRaw": "100000",
+      "runningTotalUSDC": "0.10",
+      "remainingBudgetRaw": "100000",
+      "remainingBudgetUSDC": "0.10",
+      "refusalCode": "REFUSED_OVER_PER_CALL_CAP",
+      "message": "Refused: price 200000 raw exceeds per-call cap 180000 raw."
+    },
+    {
+      "seq": 3,
+      "stepIndex": 2,
+      "timestamp": "2026-11-08T23:44:00.863Z",
+      "intentId": "0xe9a2183ede3ccfba3d36a30b24bf4c86df75c01c2521aedc9d01023325aaca70",
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+      "endpointLabel": "Whale Telemetry",
+      "whatItBought": "Pharos Atlantic top-holder concentration and liquidity flow analytics.",
+      "decision": "REFUSED_OVER_TOTAL_BUDGET",
+      "debit": false,
+      "priceRaw": "150000",
+      "priceUSDC": "0.15",
+      "runningTotalRaw": "100000",
+      "runningTotalUSDC": "0.10",
+      "remainingBudgetRaw": "100000",
+      "remainingBudgetUSDC": "0.10",
+      "refusalCode": "REFUSED_OVER_TOTAL_BUDGET",
+      "message": "Refused: committed 100000 + reserved 0 + price 150000 = 250000 raw exceeds total budget 200000 raw."
+    }
+  ],
+  "gauges": {
+    "totalBudgetUSDC": "0.20",
+    "perCallCapUSDC": "0.18",
+    "committedSpendUSDC": "0.10",
+    "reservedSpendUSDC": "0.00",
+    "runningTotalUSDC": "0.10",
+    "remainingBudgetUSDC": "0.10"
+  },
+  "events": [
+    {
+      "seq": 1,
+      "at": "2026-11-08T23:43:58.554Z",
+      "type": "TASK_STARTED",
+      "message": "Task \"Full Deep-Dive + MEV + Institutional Alpha Sweep\" started — budget 0.20 USDC, per-call cap 0.18 USDC.",
+      "data": {
+        "steps": 3
+      }
+    },
+    {
+      "seq": 2,
+      "at": "2026-11-08T23:43:58.555Z",
+      "type": "STEP_STARTED",
+      "message": "Step 1: Security Audit -> http://127.0.0.1:4319/api/x402/security-audit"
+    },
+    {
+      "seq": 3,
+      "at": "2026-11-08T23:43:58.573Z",
+      "type": "QUOTE_RECEIVED_402",
+      "message": "Step 1: quote received — 0.10 USDC to 0xB0f768...4727c0 (eip155:688689).",
+      "data": {
+        "resource": "http://127.0.0.1:4319/api/x402/security-audit",
+        "quoteCommitment": "0x16444888d27df51c48ffb3198613e88770bb7aee72b055dd1a17e30b0e8f84b3"
+      }
+    },
+    {
+      "seq": 4,
+      "at": "2026-11-08T23:43:58.574Z",
+      "type": "GATE_EVALUATED",
+      "message": "Step 1: Utility approved: expected 0.20 USDC-equivalent >= price 0.10 USDC (ROI 2.00x, 120 signals/USDC, source: catalog). | Approved: 100000 raw within per-call cap and budget.",
+      "data": {
+        "roiVerdict": "APPROVED",
+        "budgetVerdict": "APPROVED",
+        "roi": {
+          "priceUSDC": 0.1,
+          "expectedUtility": 0.2,
+          "roi": 2,
+          "signalsPerUSDC": 120,
+          "source": "catalog",
+          "verdict": "APPROVED",
+          "message": "Utility approved: expected 0.20 USDC-equivalent >= price 0.10 USDC (ROI 2.00x, 120 signals/USDC, source: catalog)."
+        }
+      }
+    },
+    {
+      "seq": 5,
+      "at": "2026-11-08T23:43:58.574Z",
+      "type": "BUDGET_RESERVED",
+      "message": "Step 1: atomic budget reservation locked for 0.10 USDC (intent 0x8ebc55e6...c86e83)."
+    },
+    {
+      "seq": 6,
+      "at": "2026-11-08T23:43:58.575Z",
+      "type": "PAYMENT_SIGNING",
+      "message": "Step 1: signing EIP-3009 authorization (0.10 USDC -> 0xB0f768...4727c0)."
+    },
+    {
+      "seq": 7,
+      "at": "2026-11-08T23:43:58.580Z",
+      "type": "WAL_RECORDED",
+      "message": "Step 1: WAL pre-record (PAYMENT_BROADCASTING) — crash-safe before any network re-submit."
+    },
+    {
+      "seq": 8,
+      "at": "2026-11-08T23:43:59.256Z",
+      "type": "PAYMENT_BROADCASTED",
+      "message": "Step 1: settlement broadcast on Pharos Atlantic — tx 0x9847ad7c...bcdec7 (eip3009).",
+      "data": {
+        "txHash": "0x9847ad7c422f919cf631378c4a35648bda530d5a4850ea11355229e7f7bcdec7"
+      }
+    },
+    {
+      "seq": 9,
+      "at": "2026-11-08T23:44:00.687Z",
+      "type": "PAYMENT_RECEIPT_CONFIRMED",
+      "message": "Step 1: settlement confirmed in block 32495238.",
+      "data": {
+        "blockNumber": "32495238"
+      }
+    },
+    {
+      "seq": 10,
+      "at": "2026-11-08T23:44:00.687Z",
+      "type": "LEDGER_DEBIT",
+      "message": "Step 1: ledger debit 0.10 USDC — running total 0.10/0.20 USDC."
+    },
+    {
+      "seq": 11,
+      "at": "2026-11-08T23:44:00.687Z",
+      "type": "WAL_RECORDED",
+      "message": "Step 1: WAL bound intent -> tx 0x9847ad7c...bcdec7 before any HTTP re-submit.",
+      "data": {
+        "txHash": "0x9847ad7c422f919cf631378c4a35648bda530d5a4850ea11355229e7f7bcdec7"
+      }
+    },
+    {
+      "seq": 12,
+      "at": "2026-11-08T23:44:00.688Z",
+      "type": "DELIVERY_ATTEMPT",
+      "message": "Step 1: delivery attempt 1/3 with the SAME payment proof (idempotency key 0x8ebc55e6...c86e83)."
+    },
+    {
+      "seq": 13,
+      "at": "2026-11-08T23:44:00.821Z",
+      "type": "COMMITMENT_VERIFIED",
+      "message": "Step 1: HTTP 200 — fresh settlement verified (tx 0x9847ad7c... block 32495238)."
+    },
+    {
+      "seq": 14,
+      "at": "2026-11-08T23:44:00.821Z",
+      "type": "DELIVERED_200",
+      "message": "Step 1: delivered \"Contract bytecode vulnerability telemetry: risk score, SWC-classified findings, gas hotspots.\"."
+    },
+    {
+      "seq": 15,
+      "at": "2026-11-08T23:44:00.821Z",
+      "type": "STEP_STARTED",
+      "message": "Step 2: MEV Simulation -> http://127.0.0.1:4319/api/x402/mev-simulation"
+    },
+    {
+      "seq": 16,
+      "at": "2026-11-08T23:44:00.842Z",
+      "type": "QUOTE_RECEIVED_402",
+      "message": "Step 2: quote received — 0.20 USDC to 0xB0f768...4727c0 (eip155:688689).",
+      "data": {
+        "resource": "http://127.0.0.1:4319/api/x402/mev-simulation",
+        "quoteCommitment": "0x6be2cafc3816452ae0ca2036781500df5025607f58b2fb891638ec934942b896"
+      }
+    },
+    {
+      "seq": 17,
+      "at": "2026-11-08T23:44:00.842Z",
+      "type": "GATE_EVALUATED",
+      "message": "Step 2: Utility approved: expected 0.35 USDC-equivalent >= price 0.20 USDC (ROI 1.75x, 75 signals/USDC, source: catalog). | Refused: price 200000 raw exceeds per-call cap 180000 raw.",
+      "data": {
+        "roiVerdict": "APPROVED",
+        "budgetVerdict": "REFUSED_OVER_PER_CALL_CAP",
+        "roi": {
+          "priceUSDC": 0.2,
+          "expectedUtility": 0.35,
+          "roi": 1.7499999999999998,
+          "signalsPerUSDC": 75,
+          "source": "catalog",
+          "verdict": "APPROVED",
+          "message": "Utility approved: expected 0.35 USDC-equivalent >= price 0.20 USDC (ROI 1.75x, 75 signals/USDC, source: catalog)."
+        }
+      }
+    },
+    {
+      "seq": 18,
+      "at": "2026-11-08T23:44:00.843Z",
+      "type": "REFUSED_OVER_PER_CALL_CAP",
+      "message": "Step 2: REFUSED_OVER_PER_CALL_CAP — nothing signed, nothing spent."
+    },
+    {
+      "seq": 19,
+      "at": "2026-11-08T23:44:00.844Z",
+      "type": "STEP_STARTED",
+      "message": "Step 3: Whale Telemetry -> http://127.0.0.1:4319/api/x402/whale-telemetry"
+    },
+    {
+      "seq": 20,
+      "at": "2026-11-08T23:44:00.862Z",
+      "type": "QUOTE_RECEIVED_402",
+      "message": "Step 3: quote received — 0.15 USDC to 0xB0f768...4727c0 (eip155:688689).",
+      "data": {
+        "resource": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+        "quoteCommitment": "0x9cbaaab63be022855cd7c68d5e50f8d68f5ee938165498e38f63a86312bf8b12"
+      }
+    },
+    {
+      "seq": 21,
+      "at": "2026-11-08T23:44:00.862Z",
+      "type": "GATE_EVALUATED",
+      "message": "Step 3: Utility approved: expected 0.30 USDC-equivalent >= price 0.15 USDC (ROI 2.00x, 133 signals/USDC, source: catalog). | Refused: committed 100000 + reserved 0 + price 150000 = 250000 raw exceeds total budget 200000 raw.",
+      "data": {
+        "roiVerdict": "APPROVED",
+        "budgetVerdict": "REFUSED_OVER_TOTAL_BUDGET",
+        "roi": {
+          "priceUSDC": 0.15,
+          "expectedUtility": 0.3,
+          "roi": 2,
+          "signalsPerUSDC": 133.33333333333334,
+          "source": "catalog",
+          "verdict": "APPROVED",
+          "message": "Utility approved: expected 0.30 USDC-equivalent >= price 0.15 USDC (ROI 2.00x, 133 signals/USDC, source: catalog)."
+        }
+      }
+    },
+    {
+      "seq": 22,
+      "at": "2026-11-08T23:44:00.863Z",
+      "type": "REFUSED_OVER_TOTAL_BUDGET",
+      "message": "Step 3: REFUSED_OVER_TOTAL_BUDGET — nothing signed, nothing spent."
+    },
+    {
+      "seq": 23,
+      "at": "2026-11-08T23:44:00.865Z",
+      "type": "SYNTHESIS_READY",
+      "message": "Synthesis ready (1 purchased, 2 refused)."
+    },
+    {
+      "seq": 24,
+      "at": "2026-11-08T23:44:00.865Z",
+      "type": "TASK_HALTED",
+      "message": "Task \"Full Deep-Dive + MEV + Institutional Alpha Sweep\" HALTED_BUDGET_EXCEEDED — spent 0.10 of 0.20 USDC (remaining 0.10)."
+    }
+  ],
+  "headerLog": [
+    {
+      "stepIndex": 0,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/security-audit",
+      "label": "Security Audit",
+      "exchanges": [
+        {
+          "phase": "initial",
+          "attempt": 1,
+          "requestHeaders": {},
+          "responseStatus": 402,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:43:58 GMT",
+            "keep-alive": "timeout=5",
+            "payment-required": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxMDAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi9zZWN1cml0eS1hdWRpdCIsImRlc2NyaXB0aW9uIjoiQ29udHJhY3QgYnl0ZWNvZGUgdnVsbmVyYWJpbGl0eSB0ZWxlbWV0cnk6IHJpc2sgc2NvcmUsIFNXQy1jbGFzc2lmaWVkIGZpbmRpbmdzLCBnYXMgaG90c3BvdHMuIiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIiwibWF4VGltZW91dFNlY29uZHMiOjYwLCJleHRyYSI6eyJuYW1lIjoiVVNEQyIsInZlcnNpb24iOiIyIiwiY2hhaW5JZCI6Njg4Njg5LCJub25jZSI6IjB4ODc5MzIyZmI0YmQ3Zjc1Y2Q0ODMwYzcyZjg4YmY2MjEwYzkxZmNjMjJkYzJmMTQ3ZDg3NzlhODM4ZDA5ZjJlZiIsImlkZW1wb3RlbmN5S2V5IjoiMHgwNzljMTgxYzcxMjAwMjAxYmE0YzBlYmM5M2ZiMzUwMzk1OWYyNmYyZDM0OTRiNzEzODM0ZjBhZjc3MmYxMDllIiwicXVvdGVDb21taXRtZW50IjoiMHgxNjQ0NDg4OGQyN2RmNTFjNDhmZmIzMTk4NjEzZTg4NzcwYmI3YWVlNzJiMDU1ZGQxYTE3ZTMwYjBlOGY4NGIzIiwiYWR2ZXJ0aXNlZFV0aWxpdHkiOnsidmFsdWVVU0RDIjoiMC4yMCIsImV4cGVjdGVkU2lnbmFscyI6MTJ9fX1dfQ==",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentRequiredHeader": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxMDAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi9zZWN1cml0eS1hdWRpdCIsImRlc2NyaXB0aW9uIjoiQ29udHJhY3QgYnl0ZWNvZGUgdnVsbmVyYWJpbGl0eSB0ZWxlbWV0cnk6IHJpc2sgc2NvcmUsIFNXQy1jbGFzc2lmaWVkIGZpbmRpbmdzLCBnYXMgaG90c3BvdHMuIiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIiwibWF4VGltZW91dFNlY29uZHMiOjYwLCJleHRyYSI6eyJuYW1lIjoiVVNEQyIsInZlcnNpb24iOiIyIiwiY2hhaW5JZCI6Njg4Njg5LCJub25jZSI6IjB4ODc5MzIyZmI0YmQ3Zjc1Y2Q0ODMwYzcyZjg4YmY2MjEwYzkxZmNjMjJkYzJmMTQ3ZDg3NzlhODM4ZDA5ZjJlZiIsImlkZW1wb3RlbmN5S2V5IjoiMHgwNzljMTgxYzcxMjAwMjAxYmE0YzBlYmM5M2ZiMzUwMzk1OWYyNmYyZDM0OTRiNzEzODM0ZjBhZjc3MmYxMDllIiwicXVvdGVDb21taXRtZW50IjoiMHgxNjQ0NDg4OGQyN2RmNTFjNDhmZmIzMTk4NjEzZTg4NzcwYmI3YWVlNzJiMDU1ZGQxYTE3ZTMwYjBlOGY4NGIzIiwiYWR2ZXJ0aXNlZFV0aWxpdHkiOnsidmFsdWVVU0RDIjoiMC4yMCIsImV4cGVjdGVkU2lnbmFscyI6MTJ9fX1dfQ=="
+        },
+        {
+          "phase": "delivery",
+          "attempt": 1,
+          "requestHeaders": {
+            "payment-signature": "<base64 payload, 2232 chars>",
+            "idempotency-key": "0x8ebc55e61c572db3d5dc3609dd5c8f6919d39bc0861d9776eb3b659557c86e83"
+          },
+          "responseStatus": 200,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:44:00 GMT",
+            "idempotency-key": "0x8ebc55e61c572db3d5dc3609dd5c8f6919d39bc0861d9776eb3b659557c86e83",
+            "keep-alive": "timeout=5",
+            "payment-response": "eyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6Njg4Njg5Iiwic2V0dGxlbWVudCI6eyJzdWNjZXNzIjp0cnVlLCJ0eEhhc2giOiIweDk4NDdhZDdjNDIyZjkxOWNmNjMxMzc4YzRhMzU2NDhiZGE1MzBkNWE0ODUwZWExMTM1NTIyOWU3ZjdiY2RlYzciLCJibG9ja051bWJlciI6IjMyNDk1MjM4IiwiYW1vdW50IjoiMTAwMDAwIiwicGF5ZXIiOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJwYXlUbyI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwic2V0dGxlZEF0IjoiMjAyNi0xMS0wOFQyMzo0NDowMC44MTNaIn0sInJlY2VpcHQiOnsiaW50ZW50SWQiOiIweDhlYmM1NWU2MWM1NzJkYjNkNWRjMzYwOWRkNWM4ZjY5MTlkMzliYzA4NjFkOTc3NmViM2I2NTk1NTdjODZlODMiLCJpZGVtcG90ZW5jeUtleSI6IjB4MDc5YzE4MWM3MTIwMDIwMWJhNGMwZWJjOTNmYjM1MDM5NTlmMjZmMmQzNDk0YjcxMzgzNGYwYWY3NzJmMTA5ZSIsInJlcGxheSI6ZmFsc2UsImRlbGl2ZXJlZEF0IjoiMjAyNi0xMS0wOFQyMzo0NDowMC44MTNaIiwidmVyaWZpZXIiOiJwaGFyb3MtYXRsYW50aWMtbGl2ZS12ZXJpZmllciJ9fQ==",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentResponseHeader": "eyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6Njg4Njg5Iiwic2V0dGxlbWVudCI6eyJzdWNjZXNzIjp0cnVlLCJ0eEhhc2giOiIweDk4NDdhZDdjNDIyZjkxOWNmNjMxMzc4YzRhMzU2NDhiZGE1MzBkNWE0ODUwZWExMTM1NTIyOWU3ZjdiY2RlYzciLCJibG9ja051bWJlciI6IjMyNDk1MjM4IiwiYW1vdW50IjoiMTAwMDAwIiwicGF5ZXIiOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJwYXlUbyI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwic2V0dGxlZEF0IjoiMjAyNi0xMS0wOFQyMzo0NDowMC44MTNaIn0sInJlY2VpcHQiOnsiaW50ZW50SWQiOiIweDhlYmM1NWU2MWM1NzJkYjNkNWRjMzYwOWRkNWM4ZjY5MTlkMzliYzA4NjFkOTc3NmViM2I2NTk1NTdjODZlODMiLCJpZGVtcG90ZW5jeUtleSI6IjB4MDc5YzE4MWM3MTIwMDIwMWJhNGMwZWJjOTNmYjM1MDM5NTlmMjZmMmQzNDk0YjcxMzgzNGYwYWY3NzJmMTA5ZSIsInJlcGxheSI6ZmFsc2UsImRlbGl2ZXJlZEF0IjoiMjAyNi0xMS0wOFQyMzo0NDowMC44MTNaIiwidmVyaWZpZXIiOiJwaGFyb3MtYXRsYW50aWMtbGl2ZS12ZXJpZmllciJ9fQ==",
+          "paymentSignatureHeaderSent": "eyJ4NDAyVmVyc2lvbiI6Miwic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoiZWlwMTU1OjY4ODY4OSIsInJlc291cmNlIjoiaHR0cDovLzEyNy4wLjAuMTo0MzE5L2FwaS94NDAyL3NlY3VyaXR5LWF1ZGl0IiwicmVxdWlyZW1lbnRzRWNobyI6eyJ4NDAyVmVyc2lvbiI6Miwic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoiZWlwMTU1OjY4ODY4OSIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwicGF5VG8iOiIweEIwZjc2ODE2NjhmOTE2ZUVkOTdkQTA2NkQzMWFBMjk1RDM0NzI3YzAiLCJtYXhBbW91bnRSZXF1aXJlZCI6IjEwMDAwMCIsInJlc291cmNlIjoiaHR0cDovLzEyNy4wLjAuMTo0MzE5L2FwaS94NDAyL3NlY3VyaXR5LWF1ZGl0IiwiZGVzY3JpcHRpb24iOiJDb250cmFjdCBieXRlY29kZSB2dWxuZXJhYmlsaXR5IHRlbGVtZXRyeTogcmlzayBzY29yZSwgU1dDLWNsYXNzaWZpZWQgZmluZGluZ3MsIGdhcyBob3RzcG90cy4iLCJtaW1lVHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIiLCJjaGFpbklkIjo2ODg2ODksIm5vbmNlIjoiMHg4NzkzMjJmYjRiZDdmNzVjZDQ4MzBjNzJmODhiZjYyMTBjOTFmY2MyMmRjMmYxNDdkODc3OWE4MzhkMDlmMmVmIiwiaWRlbXBvdGVuY3lLZXkiOiIweDA3OWMxODFjNzEyMDAyMDFiYTRjMGViYzkzZmIzNTAzOTU5ZjI2ZjJkMzQ5NGI3MTM4MzRmMGFmNzcyZjEwOWUiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDE2NDQ0ODg4ZDI3ZGY1MWM0OGZmYjMxOTg2MTNlODg3NzBiYjdhZWU3MmIwNTVkZDFhMTdlMzBiMGU4Zjg0YjMiLCJhZHZlcnRpc2VkVXRpbGl0eSI6eyJ2YWx1ZVVTREMiOiIwLjIwIiwiZXhwZWN0ZWRTaWduYWxzIjoxMn19fSwiaW50ZW50SWQiOiIweDhlYmM1NWU2MWM1NzJkYjNkNWRjMzYwOWRkNWM4ZjY5MTlkMzliYzA4NjFkOTc3NmViM2I2NTk1NTdjODZlODMiLCJhdXRob3JpemF0aW9uIjp7ImZyb20iOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJ0byI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsInZhbHVlIjoiMTAwMDAwIiwidmFsaWRBZnRlciI6IjE3OTQxODExMzgiLCJ2YWxpZEJlZm9yZSI6IjE3OTQxODIzMzgiLCJub25jZSI6IjB4YzQ3NTJhZTliNzdiZjlkMjc2ZGY1MmFjYzc2ZGE3NDJiZDNjMGJiMDVmMTFhZmYzYTAxMDgyNDZkZjI0MDU0YyJ9LCJzaWduYXR1cmUiOiIweDZhNDkxZDFmNDU0NDc2YWI0YmUxODQ5M2E3ODczNTRlOGIxNmVkOTAwYzA3MWJkZjFkZTgyNDYzYzNkZGQ5Mzc0MzE2MGYyYTRjZTViMzhhY2UwN2YyNjVhMTMxY2ZkZWZkMTMzYWI3YzQ0Y2U1OWY5NTI1Y2RhNmNlOGVlYzhjMWIiLCJ0eEhhc2giOiIweDk4NDdhZDdjNDIyZjkxOWNmNjMxMzc4YzRhMzU2NDhiZGE1MzBkNWE0ODUwZWExMTM1NTIyOWU3ZjdiY2RlYzciLCJxdW90ZUNvbW1pdG1lbnQiOiIweDE2NDQ0ODg4ZDI3ZGY1MWM0OGZmYjMxOTg2MTNlODg3NzBiYjdhZWU3MmIwNTVkZDFhMTdlMzBiMGU4Zjg0YjMiLCJzZXR0bGVtZW50Q29tbWl0bWVudCI6IjB4OTE4NzhkNzc0ZDdhMWI4OWJlZjhlODJjOWQ5NjM0MTdhM2E5NmM5YjM1Y2ZkMDAyNDRhM2JmNmU2YjRhYzkzYiJ9"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/mev-simulation",
+      "label": "MEV Simulation",
+      "exchanges": [
+        {
+          "phase": "initial",
+          "attempt": 1,
+          "requestHeaders": {},
+          "responseStatus": 402,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:44:00 GMT",
+            "keep-alive": "timeout=5",
+            "payment-required": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIyMDAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi9tZXYtc2ltdWxhdGlvbiIsImRlc2NyaXB0aW9uIjoiU2xpcHBhZ2UgYW5kIHNhbmR3aWNoLXJpc2sgc2ltdWxhdGlvbiBmb3IgYSByZWZlcmVuY2UgdHJhZGUgcm91dGUuIiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIiwibWF4VGltZW91dFNlY29uZHMiOjYwLCJleHRyYSI6eyJuYW1lIjoiVVNEQyIsInZlcnNpb24iOiIyIiwiY2hhaW5JZCI6Njg4Njg5LCJub25jZSI6IjB4NGY5NjQyYmFmMjNlYjU2NmNkZDExMTBiZTdjNjcyNTQzNTYzMGZhMzhiMjE4YjQ2Njg4ZTA5ZDc0NzQxODkxNyIsImlkZW1wb3RlbmN5S2V5IjoiMHg5OTkwNTcxYTNhMzIzMjcxNzg2MmIxZDIwY2IxMDM2ZjZmZGI3ZjA2N2QzNmUyZGE2YTdmMjJkNDcwOThkY2MyIiwicXVvdGVDb21taXRtZW50IjoiMHg2YmUyY2FmYzM4MTY0NTJhZTBjYTIwMzY3ODE1MDBkZjUwMjU2MDdmNThiMmZiODkxNjM4ZWM5MzQ5NDJiODk2IiwiYWR2ZXJ0aXNlZFV0aWxpdHkiOnsidmFsdWVVU0RDIjoiMC4zNSIsImV4cGVjdGVkU2lnbmFscyI6MTV9fX1dfQ==",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentRequiredHeader": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIyMDAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi9tZXYtc2ltdWxhdGlvbiIsImRlc2NyaXB0aW9uIjoiU2xpcHBhZ2UgYW5kIHNhbmR3aWNoLXJpc2sgc2ltdWxhdGlvbiBmb3IgYSByZWZlcmVuY2UgdHJhZGUgcm91dGUuIiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIiwibWF4VGltZW91dFNlY29uZHMiOjYwLCJleHRyYSI6eyJuYW1lIjoiVVNEQyIsInZlcnNpb24iOiIyIiwiY2hhaW5JZCI6Njg4Njg5LCJub25jZSI6IjB4NGY5NjQyYmFmMjNlYjU2NmNkZDExMTBiZTdjNjcyNTQzNTYzMGZhMzhiMjE4YjQ2Njg4ZTA5ZDc0NzQxODkxNyIsImlkZW1wb3RlbmN5S2V5IjoiMHg5OTkwNTcxYTNhMzIzMjcxNzg2MmIxZDIwY2IxMDM2ZjZmZGI3ZjA2N2QzNmUyZGE2YTdmMjJkNDcwOThkY2MyIiwicXVvdGVDb21taXRtZW50IjoiMHg2YmUyY2FmYzM4MTY0NTJhZTBjYTIwMzY3ODE1MDBkZjUwMjU2MDdmNThiMmZiODkxNjM4ZWM5MzQ5NDJiODk2IiwiYWR2ZXJ0aXNlZFV0aWxpdHkiOnsidmFsdWVVU0RDIjoiMC4zNSIsImV4cGVjdGVkU2lnbmFscyI6MTV9fX1dfQ=="
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+      "label": "Whale Telemetry",
+      "exchanges": [
+        {
+          "phase": "initial",
+          "attempt": 1,
+          "requestHeaders": {},
+          "responseStatus": 402,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:44:00 GMT",
+            "keep-alive": "timeout=5",
+            "payment-required": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxNTAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi93aGFsZS10ZWxlbWV0cnkiLCJkZXNjcmlwdGlvbiI6IlBoYXJvcyBBdGxhbnRpYyB0b3AtaG9sZGVyIGNvbmNlbnRyYXRpb24gYW5kIGxpcXVpZGl0eSBmbG93IGFuYWx5dGljcy4iLCJtaW1lVHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIiLCJjaGFpbklkIjo2ODg2ODksIm5vbmNlIjoiMHgzZGExMTQxMmIwNTRhY2NhMDU2ZTEzNDQ4NDFhNzQ1Yzc1MWFjYjU4M2M4ODk4ZGFkM2U5MmYzODdmOWE5NmM2IiwiaWRlbXBvdGVuY3lLZXkiOiIweDBhMzcxZTU5ZDA4N2U2Y2IzOGI3MDg0Nzc0M2MwOWNlYjJhNWE0N2IzODllNDNiODM0YTE3NWY4YTk2NWFiZTgiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDljYmFhYWI2M2JlMDIyODU1Y2Q3YzY4ZDVlNTBmOGQ2OGY1ZWU5MzgxNjU0OThlMzhmNjNhODYzMTJiZjhiMTIiLCJhZHZlcnRpc2VkVXRpbGl0eSI6eyJ2YWx1ZVVTREMiOiIwLjMwIiwiZXhwZWN0ZWRTaWduYWxzIjoyMH19fV19",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentRequiredHeader": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxNTAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi93aGFsZS10ZWxlbWV0cnkiLCJkZXNjcmlwdGlvbiI6IlBoYXJvcyBBdGxhbnRpYyB0b3AtaG9sZGVyIGNvbmNlbnRyYXRpb24gYW5kIGxpcXVpZGl0eSBmbG93IGFuYWx5dGljcy4iLCJtaW1lVHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIiLCJjaGFpbklkIjo2ODg2ODksIm5vbmNlIjoiMHgzZGExMTQxMmIwNTRhY2NhMDU2ZTEzNDQ4NDFhNzQ1Yzc1MWFjYjU4M2M4ODk4ZGFkM2U5MmYzODdmOWE5NmM2IiwiaWRlbXBvdGVuY3lLZXkiOiIweDBhMzcxZTU5ZDA4N2U2Y2IzOGI3MDg0Nzc0M2MwOWNlYjJhNWE0N2IzODllNDNiODM0YTE3NWY4YTk2NWFiZTgiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDljYmFhYWI2M2JlMDIyODU1Y2Q3YzY4ZDVlNTBmOGQ2OGY1ZWU5MzgxNjU0OThlMzhmNjNhODYzMTJiZjhiMTIiLCJhZHZlcnRpc2VkVXRpbGl0eSI6eyJ2YWx1ZVVTREMiOiIwLjMwIiwiZXhwZWN0ZWRTaWduYWxzIjoyMH19fV19"
+        }
+      ]
+    }
+  ],
+  "broadcasts": {
+    "attempted": 1,
+    "skippedViaJournal": 0
+  },
+  "faultsInjected": 0,
+  "startedAt": "2026-11-08T23:43:58.554Z",
+  "finishedAt": "2026-11-08T23:44:00.865Z",
+  "synthesis": {
+    "report": "Full Deep-Dive Sweep (halted)",
+    "partialVerdict": "Partial synthesis from the paid audit: risk score 43/100 (NEEDS_REMEDIATION). MEV and whale layers were NOT purchased.",
+    "purchasedSignals": [
+      {
+        "endpoint": "Security Audit",
+        "data": {
+          "resource": "security-audit",
+          "contractUnderReview": "0x8ce8ccc4d8ef8ab496cf087836ff0f8711226487",
+          "bytecodeHash": "0x4c4cd9ca130858e95bdeaa41183a91db64099725254ba22dae055fc7ec316677",
+          "riskScore": 43,
+          "verdict": "NEEDS_REMEDIATION",
+          "findings": [
+            {
+              "id": "F-1",
+              "severity": "high",
+              "swcId": "SWC-106",
+              "title": "Unbounded loop allows gas griefing",
+              "confidence": 0.61
+            },
+            {
+              "id": "F-2",
+              "severity": "informational",
+              "swcId": "SWC-119",
+              "title": "Unsafe ERC-20 return-value assumption",
+              "confidence": 0.9
+            },
+            {
+              "id": "F-3",
+              "severity": "high",
+              "swcId": "SWC-102",
+              "title": "Event missing indexed parameter",
+              "confidence": 0.95
+            },
+            {
+              "id": "F-4",
+              "severity": "low",
+              "swcId": "SWC-104",
+              "title": "Event missing indexed parameter",
+              "confidence": 0.6
+            },
+            {
+              "id": "F-5",
+              "severity": "low",
+              "swcId": "SWC-134",
+              "title": "Unbounded loop allows gas griefing",
+              "confidence": 0.95
+            }
+          ],
+          "gasHotspots": [
+            {
+              "fn": "redeem",
+              "deltaPct": 14
+            },
+            {
+              "fn": "redeem",
+              "deltaPct": 5
+            },
+            {
+              "fn": "swap",
+              "deltaPct": 14
+            }
+          ]
+        }
+      }
+    ],
+    "refusalAudit": [
+      {
+        "endpoint": "MEV Simulation",
+        "code": "REFUSED_OVER_PER_CALL_CAP",
+        "priceUSDC": "0.20",
+        "reason": "Refused: price 200000 raw exceeds per-call cap 180000 raw."
+      },
+      {
+        "endpoint": "Whale Telemetry",
+        "code": "REFUSED_OVER_TOTAL_BUDGET",
+        "priceUSDC": "0.15",
+        "reason": "Refused: committed 100000 + reserved 0 + price 150000 = 250000 raw exceeds total budget 200000 raw."
+      }
+    ],
+    "haltReason": "Per-call cap and total-budget gates refused the remaining calls BEFORE any signature; the agent halted gracefully instead of over-spending."
+  }
+}

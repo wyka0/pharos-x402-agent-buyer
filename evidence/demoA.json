@@ -1,0 +1,651 @@
+{
+  "taskRunId": "live-demo-a-1794181432645",
+  "title": "Execute DeFi Token Risk Due-Diligence Report",
+  "description": "Buy security audit telemetry and whale concentration/flow analytics under a 0.30 USDC budget with a 0.25 USDC per-call cap, then synthesize a risk report.",
+  "status": "COMPLETED",
+  "mode": "live",
+  "purchases": [
+    {
+      "stepIndex": 0,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/security-audit",
+      "label": "Security Audit",
+      "whatItBought": "Contract bytecode vulnerability telemetry: risk score, SWC-classified findings, gas hotspots.",
+      "priceRaw": "100000",
+      "priceUSDC": "0.10",
+      "intentId": "0x139078b42184a7403d5f0323f3a1ca93b0a08be10e20cc439b1406a5dde7ae23",
+      "txHash": "0xb77df71a854edc56bed1fe11bdb95ec02090aa51d294c4dfefac58576ee34e90",
+      "blockNumber": "32495232",
+      "explorerUrl": "https://atlantic.pharosscan.xyz/tx/0xb77df71a854edc56bed1fe11bdb95ec02090aa51d294c4dfefac58576ee34e90",
+      "attempt": 1,
+      "serverReplay": false,
+      "quoteCommitment": "0x5f163f69d5c343a9005cda22372f9f6dbee2da38009d5c9cf5802f37e58f5369",
+      "settlementCommitment": "0x901b8c6b7b5b0ee3bc87793b2cebc185e8cda4760803cdeefda99e75802c58c1",
+      "data": {
+        "resource": "security-audit",
+        "contractUnderReview": "0xd0454a2c2c6793e5bc01272378f5c03d754215bb",
+        "bytecodeHash": "0x7b26356f5eaaa014c5d48712982e3e4cc29de8a42120bcc5ff5f2a4e10dcee4a",
+        "riskScore": 59,
+        "verdict": "NEEDS_REMEDIATION",
+        "findings": [
+          {
+            "id": "F-1",
+            "severity": "critical",
+            "swcId": "SWC-119",
+            "title": "Reentrancy guard absent on withdraw path",
+            "confidence": 0.84
+          },
+          {
+            "id": "F-2",
+            "severity": "critical",
+            "swcId": "SWC-109",
+            "title": "Event missing indexed parameter",
+            "confidence": 0.6
+          },
+          {
+            "id": "F-3",
+            "severity": "critical",
+            "swcId": "SWC-101",
+            "title": "Floating pragma in production artifact",
+            "confidence": 0.79
+          },
+          {
+            "id": "F-4",
+            "severity": "medium",
+            "swcId": "SWC-108",
+            "title": "Stale oracle timestamp accepted",
+            "confidence": 0.58
+          },
+          {
+            "id": "F-5",
+            "severity": "high",
+            "swcId": "SWC-106",
+            "title": "Unsafe ERC-20 return-value assumption",
+            "confidence": 0.84
+          }
+        ],
+        "gasHotspots": [
+          {
+            "fn": "mint",
+            "deltaPct": 22
+          },
+          {
+            "fn": "redeem",
+            "deltaPct": 20
+          },
+          {
+            "fn": "govern",
+            "deltaPct": 8
+          }
+        ]
+      }
+    },
+    {
+      "stepIndex": 1,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+      "label": "Whale Telemetry",
+      "whatItBought": "Pharos Atlantic top-holder concentration and liquidity flow analytics.",
+      "priceRaw": "150000",
+      "priceUSDC": "0.15",
+      "intentId": "0xed071e6edc57cf0689e8f1b1acda56f7ecb90cfff928a3de9ca1a842e0042c66",
+      "txHash": "0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261",
+      "blockNumber": "32495235",
+      "explorerUrl": "https://atlantic.pharosscan.xyz/tx/0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261",
+      "attempt": 2,
+      "serverReplay": false,
+      "quoteCommitment": "0x81f3012b5d636a69b54a57b3488819ffd3d9f56766b64dcaa601a2fe9235b18f",
+      "settlementCommitment": "0x0b304ccb1765d0ac07f318aabae79e8387ea6b6825e8be5d27229a4d7aee1206",
+      "data": {
+        "resource": "whale-telemetry",
+        "token": "USDC (Pharos Atlantic)",
+        "topHolderConcentrationPct": 82.71,
+        "topHolders": [
+          {
+            "rank": 1,
+            "address": "0xea1e63c32da0a8915b29ad55e39c14d70a707bef",
+            "sharePct": 1.79,
+            "delta24hPct": 3.24,
+            "tag": "sniper"
+          },
+          {
+            "rank": 2,
+            "address": "0x70cf0e3e08d0a06a5ccc12cdf07644d2484817ac",
+            "sharePct": 11.03,
+            "delta24hPct": 8.45,
+            "tag": "lp-treasury"
+          },
+          {
+            "rank": 3,
+            "address": "0x6d0c1e194395f357ccc696520b22c7c83fd53fcd",
+            "sharePct": 13.41,
+            "delta24hPct": -3.34,
+            "tag": "smart-money"
+          },
+          {
+            "rank": 4,
+            "address": "0xa10f6a47ef17ab77c49eb32d8e31f1c859e2f3ea",
+            "sharePct": 9.81,
+            "delta24hPct": 8.96,
+            "tag": "lp-treasury"
+          },
+          {
+            "rank": 5,
+            "address": "0xe37a8510bc0e551f8d0c4c9b237dd0771f9a409e",
+            "sharePct": 7.78,
+            "delta24hPct": 0.3,
+            "tag": "exchange"
+          },
+          {
+            "rank": 6,
+            "address": "0x54565f44812e317ecf99c8144f898e14d8e7bd9f",
+            "sharePct": 14.36,
+            "delta24hPct": -1.05,
+            "tag": "sniper"
+          },
+          {
+            "rank": 7,
+            "address": "0x39efe6eb55d4c8e407e22ffeba5110ebbc8dc2a5",
+            "sharePct": 6.78,
+            "delta24hPct": 6.08,
+            "tag": "sniper"
+          },
+          {
+            "rank": 8,
+            "address": "0xe531ff9cfce2fb102397ead282f6a6b6b154d587",
+            "sharePct": 2.14,
+            "delta24hPct": 1.53,
+            "tag": "exchange"
+          },
+          {
+            "rank": 9,
+            "address": "0x164b4260be1313a9f8a550f78b1b7c73bf0e3ddc",
+            "sharePct": 10.19,
+            "delta24hPct": -5.71,
+            "tag": "exchange"
+          },
+          {
+            "rank": 10,
+            "address": "0x048b922780704ff57b74daec7b0eb3ae3f7a657d",
+            "sharePct": 5.42,
+            "delta24hPct": 1.79,
+            "tag": "exchange"
+          }
+        ],
+        "liquidityFlow": {
+          "inflowUSDC": 100158,
+          "outflowUSDC": 103608,
+          "netUSDC": -3450
+        },
+        "whaleAlerts": [
+          {
+            "address": "0x48d3f409aca8c8025fd8dd094a3a0d8ed9a66e8d",
+            "action": "ACCUMULATE",
+            "usdcAmount": 111173
+          },
+          {
+            "address": "0xf699464258b5620a3441bf0d1c1877497ab8c059",
+            "action": "ACCUMULATE",
+            "usdcAmount": 222793
+          },
+          {
+            "address": "0x1004ee11b460facdedf74a7dd24d09d381100949",
+            "action": "DISTRIBUTE",
+            "usdcAmount": 180137
+          }
+        ]
+      }
+    }
+  ],
+  "refusals": [],
+  "ledger": [
+    {
+      "seq": 1,
+      "stepIndex": 0,
+      "timestamp": "2026-11-08T23:43:55.574Z",
+      "intentId": "0x139078b42184a7403d5f0323f3a1ca93b0a08be10e20cc439b1406a5dde7ae23",
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/security-audit",
+      "endpointLabel": "Security Audit",
+      "whatItBought": "Contract bytecode vulnerability telemetry: risk score, SWC-classified findings, gas hotspots.",
+      "decision": "PAID",
+      "debit": true,
+      "priceRaw": "100000",
+      "priceUSDC": "0.10",
+      "txHash": "0xb77df71a854edc56bed1fe11bdb95ec02090aa51d294c4dfefac58576ee34e90",
+      "blockNumber": "32495232",
+      "explorerUrl": "https://atlantic.pharosscan.xyz/tx/0xb77df71a854edc56bed1fe11bdb95ec02090aa51d294c4dfefac58576ee34e90",
+      "runningTotalRaw": "100000",
+      "runningTotalUSDC": "0.10",
+      "remainingBudgetRaw": "200000",
+      "remainingBudgetUSDC": "0.20",
+      "settlementCommitment": "0x901b8c6b7b5b0ee3bc87793b2cebc185e8cda4760803cdeefda99e75802c58c1",
+      "message": "Settled 0.10 USDC on Pharos Atlantic."
+    },
+    {
+      "seq": 2,
+      "stepIndex": 1,
+      "timestamp": "2026-11-08T23:43:58.356Z",
+      "intentId": "0xed071e6edc57cf0689e8f1b1acda56f7ecb90cfff928a3de9ca1a842e0042c66",
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+      "endpointLabel": "Whale Telemetry",
+      "whatItBought": "Pharos Atlantic top-holder concentration and liquidity flow analytics.",
+      "decision": "PAID",
+      "debit": true,
+      "priceRaw": "150000",
+      "priceUSDC": "0.15",
+      "txHash": "0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261",
+      "blockNumber": "32495235",
+      "explorerUrl": "https://atlantic.pharosscan.xyz/tx/0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261",
+      "runningTotalRaw": "250000",
+      "runningTotalUSDC": "0.25",
+      "remainingBudgetRaw": "50000",
+      "remainingBudgetUSDC": "0.05",
+      "settlementCommitment": "0x0b304ccb1765d0ac07f318aabae79e8387ea6b6825e8be5d27229a4d7aee1206",
+      "message": "Settled 0.15 USDC on Pharos Atlantic."
+    },
+    {
+      "seq": 3,
+      "stepIndex": 1,
+      "timestamp": "2026-11-08T23:43:58.511Z",
+      "intentId": "0xed071e6edc57cf0689e8f1b1acda56f7ecb90cfff928a3de9ca1a842e0042c66",
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+      "endpointLabel": "Whale Telemetry",
+      "whatItBought": "Pharos Atlantic top-holder concentration and liquidity flow analytics.",
+      "decision": "RETRIED_DELIVERED",
+      "debit": false,
+      "priceRaw": "150000",
+      "priceUSDC": "0.15",
+      "txHash": "0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261",
+      "blockNumber": "32495235",
+      "explorerUrl": "https://atlantic.pharosscan.xyz/tx/0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261",
+      "runningTotalRaw": "250000",
+      "runningTotalUSDC": "0.25",
+      "remainingBudgetRaw": "50000",
+      "remainingBudgetUSDC": "0.05",
+      "settlementCommitment": "0x0b304ccb1765d0ac07f318aabae79e8387ea6b6825e8be5d27229a4d7aee1206",
+      "message": "Delivered on attempt 2; no additional debit."
+    }
+  ],
+  "gauges": {
+    "totalBudgetUSDC": "0.30",
+    "perCallCapUSDC": "0.25",
+    "committedSpendUSDC": "0.25",
+    "reservedSpendUSDC": "0.00",
+    "runningTotalUSDC": "0.25",
+    "remainingBudgetUSDC": "0.05"
+  },
+  "events": [
+    {
+      "seq": 1,
+      "at": "2026-11-08T23:43:52.677Z",
+      "type": "TASK_STARTED",
+      "message": "Task \"Execute DeFi Token Risk Due-Diligence Report\" started — budget 0.30 USDC, per-call cap 0.25 USDC.",
+      "data": {
+        "steps": 2
+      }
+    },
+    {
+      "seq": 2,
+      "at": "2026-11-08T23:43:52.678Z",
+      "type": "STEP_STARTED",
+      "message": "Step 1: Security Audit -> http://127.0.0.1:4319/api/x402/security-audit"
+    },
+    {
+      "seq": 3,
+      "at": "2026-11-08T23:43:52.999Z",
+      "type": "QUOTE_RECEIVED_402",
+      "message": "Step 1: quote received — 0.10 USDC to 0xB0f768...4727c0 (eip155:688689).",
+      "data": {
+        "resource": "http://127.0.0.1:4319/api/x402/security-audit",
+        "quoteCommitment": "0x5f163f69d5c343a9005cda22372f9f6dbee2da38009d5c9cf5802f37e58f5369"
+      }
+    },
+    {
+      "seq": 4,
+      "at": "2026-11-08T23:43:53.005Z",
+      "type": "GATE_EVALUATED",
+      "message": "Step 1: Utility approved: expected 0.20 USDC-equivalent >= price 0.10 USDC (ROI 2.00x, 120 signals/USDC, source: catalog). | Approved: 100000 raw within per-call cap and budget.",
+      "data": {
+        "roiVerdict": "APPROVED",
+        "budgetVerdict": "APPROVED",
+        "roi": {
+          "priceUSDC": 0.1,
+          "expectedUtility": 0.2,
+          "roi": 2,
+          "signalsPerUSDC": 120,
+          "source": "catalog",
+          "verdict": "APPROVED",
+          "message": "Utility approved: expected 0.20 USDC-equivalent >= price 0.10 USDC (ROI 2.00x, 120 signals/USDC, source: catalog)."
+        }
+      }
+    },
+    {
+      "seq": 5,
+      "at": "2026-11-08T23:43:53.007Z",
+      "type": "BUDGET_RESERVED",
+      "message": "Step 1: atomic budget reservation locked for 0.10 USDC (intent 0x139078b4...e7ae23)."
+    },
+    {
+      "seq": 6,
+      "at": "2026-11-08T23:43:53.013Z",
+      "type": "PAYMENT_SIGNING",
+      "message": "Step 1: signing EIP-3009 authorization (0.10 USDC -> 0xB0f768...4727c0)."
+    },
+    {
+      "seq": 7,
+      "at": "2026-11-08T23:43:53.139Z",
+      "type": "WAL_RECORDED",
+      "message": "Step 1: WAL pre-record (PAYMENT_BROADCASTING) — crash-safe before any network re-submit."
+    },
+    {
+      "seq": 8,
+      "at": "2026-11-08T23:43:54.142Z",
+      "type": "PAYMENT_BROADCASTED",
+      "message": "Step 1: settlement broadcast on Pharos Atlantic — tx 0xb77df71a...e34e90 (eip3009).",
+      "data": {
+        "txHash": "0xb77df71a854edc56bed1fe11bdb95ec02090aa51d294c4dfefac58576ee34e90"
+      }
+    },
+    {
+      "seq": 9,
+      "at": "2026-11-08T23:43:55.573Z",
+      "type": "PAYMENT_RECEIPT_CONFIRMED",
+      "message": "Step 1: settlement confirmed in block 32495232.",
+      "data": {
+        "blockNumber": "32495232"
+      }
+    },
+    {
+      "seq": 10,
+      "at": "2026-11-08T23:43:55.574Z",
+      "type": "LEDGER_DEBIT",
+      "message": "Step 1: ledger debit 0.10 USDC — running total 0.10/0.30 USDC."
+    },
+    {
+      "seq": 11,
+      "at": "2026-11-08T23:43:55.583Z",
+      "type": "WAL_RECORDED",
+      "message": "Step 1: WAL bound intent -> tx 0xb77df71a...e34e90 before any HTTP re-submit.",
+      "data": {
+        "txHash": "0xb77df71a854edc56bed1fe11bdb95ec02090aa51d294c4dfefac58576ee34e90"
+      }
+    },
+    {
+      "seq": 12,
+      "at": "2026-11-08T23:43:55.584Z",
+      "type": "DELIVERY_ATTEMPT",
+      "message": "Step 1: delivery attempt 1/3 with the SAME payment proof (idempotency key 0x139078b4...e7ae23)."
+    },
+    {
+      "seq": 13,
+      "at": "2026-11-08T23:43:56.226Z",
+      "type": "COMMITMENT_VERIFIED",
+      "message": "Step 1: HTTP 200 — fresh settlement verified (tx 0xb77df71a... block 32495232)."
+    },
+    {
+      "seq": 14,
+      "at": "2026-11-08T23:43:56.226Z",
+      "type": "DELIVERED_200",
+      "message": "Step 1: delivered \"Contract bytecode vulnerability telemetry: risk score, SWC-classified findings, gas hotspots.\"."
+    },
+    {
+      "seq": 15,
+      "at": "2026-11-08T23:43:56.226Z",
+      "type": "STEP_STARTED",
+      "message": "Step 2: Whale Telemetry -> http://127.0.0.1:4319/api/x402/whale-telemetry"
+    },
+    {
+      "seq": 16,
+      "at": "2026-11-08T23:43:56.264Z",
+      "type": "QUOTE_RECEIVED_402",
+      "message": "Step 2: quote received — 0.15 USDC to 0xB0f768...4727c0 (eip155:688689).",
+      "data": {
+        "resource": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+        "quoteCommitment": "0x81f3012b5d636a69b54a57b3488819ffd3d9f56766b64dcaa601a2fe9235b18f"
+      }
+    },
+    {
+      "seq": 17,
+      "at": "2026-11-08T23:43:56.267Z",
+      "type": "GATE_EVALUATED",
+      "message": "Step 2: Utility approved: expected 0.30 USDC-equivalent >= price 0.15 USDC (ROI 2.00x, 133 signals/USDC, source: catalog). | Approved: 150000 raw within per-call cap and budget.",
+      "data": {
+        "roiVerdict": "APPROVED",
+        "budgetVerdict": "APPROVED",
+        "roi": {
+          "priceUSDC": 0.15,
+          "expectedUtility": 0.3,
+          "roi": 2,
+          "signalsPerUSDC": 133.33333333333334,
+          "source": "catalog",
+          "verdict": "APPROVED",
+          "message": "Utility approved: expected 0.30 USDC-equivalent >= price 0.15 USDC (ROI 2.00x, 133 signals/USDC, source: catalog)."
+        }
+      }
+    },
+    {
+      "seq": 18,
+      "at": "2026-11-08T23:43:56.268Z",
+      "type": "BUDGET_RESERVED",
+      "message": "Step 2: atomic budget reservation locked for 0.15 USDC (intent 0xed071e6e...042c66)."
+    },
+    {
+      "seq": 19,
+      "at": "2026-11-08T23:43:56.268Z",
+      "type": "PAYMENT_SIGNING",
+      "message": "Step 2: signing EIP-3009 authorization (0.15 USDC -> 0xB0f768...4727c0)."
+    },
+    {
+      "seq": 20,
+      "at": "2026-11-08T23:43:56.287Z",
+      "type": "WAL_RECORDED",
+      "message": "Step 2: WAL pre-record (PAYMENT_BROADCASTING) — crash-safe before any network re-submit."
+    },
+    {
+      "seq": 21,
+      "at": "2026-11-08T23:43:56.908Z",
+      "type": "PAYMENT_BROADCASTED",
+      "message": "Step 2: settlement broadcast on Pharos Atlantic — tx 0x213593bf...2dc261 (eip3009).",
+      "data": {
+        "txHash": "0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261"
+      }
+    },
+    {
+      "seq": 22,
+      "at": "2026-11-08T23:43:58.356Z",
+      "type": "PAYMENT_RECEIPT_CONFIRMED",
+      "message": "Step 2: settlement confirmed in block 32495235.",
+      "data": {
+        "blockNumber": "32495235"
+      }
+    },
+    {
+      "seq": 23,
+      "at": "2026-11-08T23:43:58.356Z",
+      "type": "LEDGER_DEBIT",
+      "message": "Step 2: ledger debit 0.15 USDC — running total 0.25/0.30 USDC."
+    },
+    {
+      "seq": 24,
+      "at": "2026-11-08T23:43:58.363Z",
+      "type": "WAL_RECORDED",
+      "message": "Step 2: WAL bound intent -> tx 0x213593bf...2dc261 before any HTTP re-submit.",
+      "data": {
+        "txHash": "0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261"
+      }
+    },
+    {
+      "seq": 25,
+      "at": "2026-11-08T23:43:58.363Z",
+      "type": "DELIVERY_ATTEMPT",
+      "message": "Step 2: delivery attempt 1/3 with the SAME payment proof (idempotency key 0xed071e6e...042c66)."
+    },
+    {
+      "seq": 26,
+      "at": "2026-11-08T23:43:58.366Z",
+      "type": "DELIVERY_FAULT_INJECTED",
+      "message": "Step 2: simulated network drop AFTER payment broadcast (attempt 1) — retrying with the same proof, no new tx."
+    },
+    {
+      "seq": 27,
+      "at": "2026-11-08T23:43:58.366Z",
+      "type": "DELIVERY_RETRYING",
+      "message": "Step 2: Simulated drop_connection while calling http://127.0.0.1:4319/api/x402/whale-telemetry (attempt 1) — safe retry 2 with identical proof."
+    },
+    {
+      "seq": 28,
+      "at": "2026-11-08T23:43:58.366Z",
+      "type": "DELIVERY_ATTEMPT",
+      "message": "Step 2: delivery attempt 2/3 with the SAME payment proof (idempotency key 0xed071e6e...042c66)."
+    },
+    {
+      "seq": 29,
+      "at": "2026-11-08T23:43:58.512Z",
+      "type": "COMMITMENT_VERIFIED",
+      "message": "Step 2: HTTP 200 — fresh settlement verified (tx 0x213593bf... block 32495235)."
+    },
+    {
+      "seq": 30,
+      "at": "2026-11-08T23:43:58.512Z",
+      "type": "DELIVERED_200",
+      "message": "Step 2: delivered \"Pharos Atlantic top-holder concentration and liquidity flow analytics.\"."
+    },
+    {
+      "seq": 31,
+      "at": "2026-11-08T23:43:58.512Z",
+      "type": "SYNTHESIS_READY",
+      "message": "Synthesis ready (2 purchased, 0 refused)."
+    },
+    {
+      "seq": 32,
+      "at": "2026-11-08T23:43:58.513Z",
+      "type": "TASK_COMPLETED",
+      "message": "Task \"Execute DeFi Token Risk Due-Diligence Report\" COMPLETED — spent 0.25 of 0.30 USDC (remaining 0.05)."
+    }
+  ],
+  "headerLog": [
+    {
+      "stepIndex": 0,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/security-audit",
+      "label": "Security Audit",
+      "exchanges": [
+        {
+          "phase": "initial",
+          "attempt": 1,
+          "requestHeaders": {},
+          "responseStatus": 402,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:43:52 GMT",
+            "keep-alive": "timeout=5",
+            "payment-required": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxMDAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi9zZWN1cml0eS1hdWRpdCIsImRlc2NyaXB0aW9uIjoiQ29udHJhY3QgYnl0ZWNvZGUgdnVsbmVyYWJpbGl0eSB0ZWxlbWV0cnk6IHJpc2sgc2NvcmUsIFNXQy1jbGFzc2lmaWVkIGZpbmRpbmdzLCBnYXMgaG90c3BvdHMuIiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIiwibWF4VGltZW91dFNlY29uZHMiOjYwLCJleHRyYSI6eyJuYW1lIjoiVVNEQyIsInZlcnNpb24iOiIyIiwiY2hhaW5JZCI6Njg4Njg5LCJub25jZSI6IjB4MGFkZTUyYzJhMjZkODdhMDk2M2M1ZTAzMWEzYmNhY2RhMjgxMDZlYzRkYTA5MTkwNDE2NzQxMjlmY2U1MzI0ZiIsImlkZW1wb3RlbmN5S2V5IjoiMHhmMDQ3YTA0NzE0YjNmYWZhYjAyY2ZkODJhOGExYmU0MTk1ZTRjYjExMzVkMDUzMGNhZDhmNTY1NzZmYmM5NTZhIiwicXVvdGVDb21taXRtZW50IjoiMHg1ZjE2M2Y2OWQ1YzM0M2E5MDA1Y2RhMjIzNzJmOWY2ZGJlZTJkYTM4MDA5ZDVjOWNmNTgwMmYzN2U1OGY1MzY5IiwiYWR2ZXJ0aXNlZFV0aWxpdHkiOnsidmFsdWVVU0RDIjoiMC4yMCIsImV4cGVjdGVkU2lnbmFscyI6MTJ9fX1dfQ==",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentRequiredHeader": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxMDAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi9zZWN1cml0eS1hdWRpdCIsImRlc2NyaXB0aW9uIjoiQ29udHJhY3QgYnl0ZWNvZGUgdnVsbmVyYWJpbGl0eSB0ZWxlbWV0cnk6IHJpc2sgc2NvcmUsIFNXQy1jbGFzc2lmaWVkIGZpbmRpbmdzLCBnYXMgaG90c3BvdHMuIiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIiwibWF4VGltZW91dFNlY29uZHMiOjYwLCJleHRyYSI6eyJuYW1lIjoiVVNEQyIsInZlcnNpb24iOiIyIiwiY2hhaW5JZCI6Njg4Njg5LCJub25jZSI6IjB4MGFkZTUyYzJhMjZkODdhMDk2M2M1ZTAzMWEzYmNhY2RhMjgxMDZlYzRkYTA5MTkwNDE2NzQxMjlmY2U1MzI0ZiIsImlkZW1wb3RlbmN5S2V5IjoiMHhmMDQ3YTA0NzE0YjNmYWZhYjAyY2ZkODJhOGExYmU0MTk1ZTRjYjExMzVkMDUzMGNhZDhmNTY1NzZmYmM5NTZhIiwicXVvdGVDb21taXRtZW50IjoiMHg1ZjE2M2Y2OWQ1YzM0M2E5MDA1Y2RhMjIzNzJmOWY2ZGJlZTJkYTM4MDA5ZDVjOWNmNTgwMmYzN2U1OGY1MzY5IiwiYWR2ZXJ0aXNlZFV0aWxpdHkiOnsidmFsdWVVU0RDIjoiMC4yMCIsImV4cGVjdGVkU2lnbmFscyI6MTJ9fX1dfQ=="
+        },
+        {
+          "phase": "delivery",
+          "attempt": 1,
+          "requestHeaders": {
+            "payment-signature": "<base64 payload, 2232 chars>",
+            "idempotency-key": "0x139078b42184a7403d5f0323f3a1ca93b0a08be10e20cc439b1406a5dde7ae23"
+          },
+          "responseStatus": 200,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:43:56 GMT",
+            "idempotency-key": "0x139078b42184a7403d5f0323f3a1ca93b0a08be10e20cc439b1406a5dde7ae23",
+            "keep-alive": "timeout=5",
+            "payment-response": "eyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6Njg4Njg5Iiwic2V0dGxlbWVudCI6eyJzdWNjZXNzIjp0cnVlLCJ0eEhhc2giOiIweGI3N2RmNzFhODU0ZWRjNTZiZWQxZmUxMWJkYjk1ZWMwMjA5MGFhNTFkMjk0YzRkZmVmYWM1ODU3NmVlMzRlOTAiLCJibG9ja051bWJlciI6IjMyNDk1MjMyIiwiYW1vdW50IjoiMTAwMDAwIiwicGF5ZXIiOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJwYXlUbyI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwic2V0dGxlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1Ni4yMDRaIn0sInJlY2VpcHQiOnsiaW50ZW50SWQiOiIweDEzOTA3OGI0MjE4NGE3NDAzZDVmMDMyM2YzYTFjYTkzYjBhMDhiZTEwZTIwY2M0MzliMTQwNmE1ZGRlN2FlMjMiLCJpZGVtcG90ZW5jeUtleSI6IjB4ZjA0N2EwNDcxNGIzZmFmYWIwMmNmZDgyYThhMWJlNDE5NWU0Y2IxMTM1ZDA1MzBjYWQ4ZjU2NTc2ZmJjOTU2YSIsInJlcGxheSI6ZmFsc2UsImRlbGl2ZXJlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1Ni4yMDRaIiwidmVyaWZpZXIiOiJwaGFyb3MtYXRsYW50aWMtbGl2ZS12ZXJpZmllciJ9fQ==",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentResponseHeader": "eyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6Njg4Njg5Iiwic2V0dGxlbWVudCI6eyJzdWNjZXNzIjp0cnVlLCJ0eEhhc2giOiIweGI3N2RmNzFhODU0ZWRjNTZiZWQxZmUxMWJkYjk1ZWMwMjA5MGFhNTFkMjk0YzRkZmVmYWM1ODU3NmVlMzRlOTAiLCJibG9ja051bWJlciI6IjMyNDk1MjMyIiwiYW1vdW50IjoiMTAwMDAwIiwicGF5ZXIiOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJwYXlUbyI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwic2V0dGxlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1Ni4yMDRaIn0sInJlY2VpcHQiOnsiaW50ZW50SWQiOiIweDEzOTA3OGI0MjE4NGE3NDAzZDVmMDMyM2YzYTFjYTkzYjBhMDhiZTEwZTIwY2M0MzliMTQwNmE1ZGRlN2FlMjMiLCJpZGVtcG90ZW5jeUtleSI6IjB4ZjA0N2EwNDcxNGIzZmFmYWIwMmNmZDgyYThhMWJlNDE5NWU0Y2IxMTM1ZDA1MzBjYWQ4ZjU2NTc2ZmJjOTU2YSIsInJlcGxheSI6ZmFsc2UsImRlbGl2ZXJlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1Ni4yMDRaIiwidmVyaWZpZXIiOiJwaGFyb3MtYXRsYW50aWMtbGl2ZS12ZXJpZmllciJ9fQ==",
+          "paymentSignatureHeaderSent": "eyJ4NDAyVmVyc2lvbiI6Miwic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoiZWlwMTU1OjY4ODY4OSIsInJlc291cmNlIjoiaHR0cDovLzEyNy4wLjAuMTo0MzE5L2FwaS94NDAyL3NlY3VyaXR5LWF1ZGl0IiwicmVxdWlyZW1lbnRzRWNobyI6eyJ4NDAyVmVyc2lvbiI6Miwic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoiZWlwMTU1OjY4ODY4OSIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwicGF5VG8iOiIweEIwZjc2ODE2NjhmOTE2ZUVkOTdkQTA2NkQzMWFBMjk1RDM0NzI3YzAiLCJtYXhBbW91bnRSZXF1aXJlZCI6IjEwMDAwMCIsInJlc291cmNlIjoiaHR0cDovLzEyNy4wLjAuMTo0MzE5L2FwaS94NDAyL3NlY3VyaXR5LWF1ZGl0IiwiZGVzY3JpcHRpb24iOiJDb250cmFjdCBieXRlY29kZSB2dWxuZXJhYmlsaXR5IHRlbGVtZXRyeTogcmlzayBzY29yZSwgU1dDLWNsYXNzaWZpZWQgZmluZGluZ3MsIGdhcyBob3RzcG90cy4iLCJtaW1lVHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIiLCJjaGFpbklkIjo2ODg2ODksIm5vbmNlIjoiMHgwYWRlNTJjMmEyNmQ4N2EwOTYzYzVlMDMxYTNiY2FjZGEyODEwNmVjNGRhMDkxOTA0MTY3NDEyOWZjZTUzMjRmIiwiaWRlbXBvdGVuY3lLZXkiOiIweGYwNDdhMDQ3MTRiM2ZhZmFiMDJjZmQ4MmE4YTFiZTQxOTVlNGNiMTEzNWQwNTMwY2FkOGY1NjU3NmZiYzk1NmEiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDVmMTYzZjY5ZDVjMzQzYTkwMDVjZGEyMjM3MmY5ZjZkYmVlMmRhMzgwMDlkNWM5Y2Y1ODAyZjM3ZTU4ZjUzNjkiLCJhZHZlcnRpc2VkVXRpbGl0eSI6eyJ2YWx1ZVVTREMiOiIwLjIwIiwiZXhwZWN0ZWRTaWduYWxzIjoxMn19fSwiaW50ZW50SWQiOiIweDEzOTA3OGI0MjE4NGE3NDAzZDVmMDMyM2YzYTFjYTkzYjBhMDhiZTEwZTIwY2M0MzliMTQwNmE1ZGRlN2FlMjMiLCJhdXRob3JpemF0aW9uIjp7ImZyb20iOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJ0byI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsInZhbHVlIjoiMTAwMDAwIiwidmFsaWRBZnRlciI6IjE3OTQxODExMzMiLCJ2YWxpZEJlZm9yZSI6IjE3OTQxODIzMzMiLCJub25jZSI6IjB4ODZiZWE4YjZmZDdhM2JiZjU1NzBlMWVmODEzNjVjNzRhMjlkMGZmMzcwNGJiOTFmYWViNTQ2NDg3ZWUxNTM1MCJ9LCJzaWduYXR1cmUiOiIweDJiZDEzNjRhMTBmMGQ5NjMwMTU4OTJlNDhiYzMzNzJiZmI4NmZiYmMxZDNlOGYxZTc2MzEyY2ZlNTI1NTdlZGMxOGVlZWEzMDM2M2VmNDM0ZjM5ZTE4MjdmZDlmNzExNzc5ZDVlZjdhMmU0NTUzYjY4ZjRjNDExYWUwZmUzMGFkMWMiLCJ0eEhhc2giOiIweGI3N2RmNzFhODU0ZWRjNTZiZWQxZmUxMWJkYjk1ZWMwMjA5MGFhNTFkMjk0YzRkZmVmYWM1ODU3NmVlMzRlOTAiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDVmMTYzZjY5ZDVjMzQzYTkwMDVjZGEyMjM3MmY5ZjZkYmVlMmRhMzgwMDlkNWM5Y2Y1ODAyZjM3ZTU4ZjUzNjkiLCJzZXR0bGVtZW50Q29tbWl0bWVudCI6IjB4OTAxYjhjNmI3YjViMGVlM2JjODc3OTNiMmNlYmMxODVlOGNkYTQ3NjA4MDNjZGVlZmRhOTllNzU4MDJjNThjMSJ9"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "endpointUrl": "http://127.0.0.1:4319/api/x402/whale-telemetry",
+      "label": "Whale Telemetry",
+      "exchanges": [
+        {
+          "phase": "initial",
+          "attempt": 1,
+          "requestHeaders": {},
+          "responseStatus": 402,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:43:56 GMT",
+            "keep-alive": "timeout=5",
+            "payment-required": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxNTAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi93aGFsZS10ZWxlbWV0cnkiLCJkZXNjcmlwdGlvbiI6IlBoYXJvcyBBdGxhbnRpYyB0b3AtaG9sZGVyIGNvbmNlbnRyYXRpb24gYW5kIGxpcXVpZGl0eSBmbG93IGFuYWx5dGljcy4iLCJtaW1lVHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIiLCJjaGFpbklkIjo2ODg2ODksIm5vbmNlIjoiMHhjYjM0NWY1ODM1NzllZDU1OGQ1NTdlMTJmMWVjZGM5MjljMDI1MGVhNGUxYjNkMGI3YmFhNTdjMWE2MDRmODg0IiwiaWRlbXBvdGVuY3lLZXkiOiIweGIyN2I4YjQ5NzRkZmUzMGQ0ODJiZmM3NjI0OTRlNDFkNTkwYWJjZjA4MTg5ZTkzMDgzNGI4N2MzNTYzMjFlODgiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDgxZjMwMTJiNWQ2MzZhNjliNTRhNTdiMzQ4ODgxOWZmZDNkOWY1Njc2NmI2NGRjYWE2MDFhMmZlOTIzNWIxOGYiLCJhZHZlcnRpc2VkVXRpbGl0eSI6eyJ2YWx1ZVVTREMiOiIwLjMwIiwiZXhwZWN0ZWRTaWduYWxzIjoyMH19fV19",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentRequiredHeader": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxNTAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi93aGFsZS10ZWxlbWV0cnkiLCJkZXNjcmlwdGlvbiI6IlBoYXJvcyBBdGxhbnRpYyB0b3AtaG9sZGVyIGNvbmNlbnRyYXRpb24gYW5kIGxpcXVpZGl0eSBmbG93IGFuYWx5dGljcy4iLCJtaW1lVHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIiLCJjaGFpbklkIjo2ODg2ODksIm5vbmNlIjoiMHhjYjM0NWY1ODM1NzllZDU1OGQ1NTdlMTJmMWVjZGM5MjljMDI1MGVhNGUxYjNkMGI3YmFhNTdjMWE2MDRmODg0IiwiaWRlbXBvdGVuY3lLZXkiOiIweGIyN2I4YjQ5NzRkZmUzMGQ0ODJiZmM3NjI0OTRlNDFkNTkwYWJjZjA4MTg5ZTkzMDgzNGI4N2MzNTYzMjFlODgiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDgxZjMwMTJiNWQ2MzZhNjliNTRhNTdiMzQ4ODgxOWZmZDNkOWY1Njc2NmI2NGRjYWE2MDFhMmZlOTIzNWIxOGYiLCJhZHZlcnRpc2VkVXRpbGl0eSI6eyJ2YWx1ZVVTREMiOiIwLjMwIiwiZXhwZWN0ZWRTaWduYWxzIjoyMH19fV19"
+        },
+        {
+          "phase": "delivery",
+          "attempt": 2,
+          "requestHeaders": {
+            "payment-signature": "<base64 payload, 2204 chars>",
+            "idempotency-key": "0xed071e6edc57cf0689e8f1b1acda56f7ecb90cfff928a3de9ca1a842e0042c66"
+          },
+          "responseStatus": 200,
+          "responseHeaders": {
+            "cache-control": "no-store",
+            "connection": "keep-alive",
+            "content-type": "text/plain;charset=UTF-8",
+            "date": "Sun, 08 Nov 2026 23:43:58 GMT",
+            "idempotency-key": "0xed071e6edc57cf0689e8f1b1acda56f7ecb90cfff928a3de9ca1a842e0042c66",
+            "keep-alive": "timeout=5",
+            "payment-response": "eyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6Njg4Njg5Iiwic2V0dGxlbWVudCI6eyJzdWNjZXNzIjp0cnVlLCJ0eEhhc2giOiIweDIxMzU5M2JmMDBjZWNlYzdjMzQ3NTIzMGM4MTg4ZDYyNTRlNDZjMTEzYzlmOTQxZjk4YTFmODQ3NDkyZGMyNjEiLCJibG9ja051bWJlciI6IjMyNDk1MjM1IiwiYW1vdW50IjoiMTUwMDAwIiwicGF5ZXIiOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJwYXlUbyI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwic2V0dGxlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1OC40OTRaIn0sInJlY2VpcHQiOnsiaW50ZW50SWQiOiIweGVkMDcxZTZlZGM1N2NmMDY4OWU4ZjFiMWFjZGE1NmY3ZWNiOTBjZmZmOTI4YTNkZTljYTFhODQyZTAwNDJjNjYiLCJpZGVtcG90ZW5jeUtleSI6IjB4YjI3YjhiNDk3NGRmZTMwZDQ4MmJmYzc2MjQ5NGU0MWQ1OTBhYmNmMDgxODllOTMwODM0Yjg3YzM1NjMyMWU4OCIsInJlcGxheSI6ZmFsc2UsImRlbGl2ZXJlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1OC40OTRaIiwidmVyaWZpZXIiOiJwaGFyb3MtYXRsYW50aWMtbGl2ZS12ZXJpZmllciJ9fQ==",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-payment-network": "eip155:688689"
+          },
+          "rawPaymentResponseHeader": "eyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6Njg4Njg5Iiwic2V0dGxlbWVudCI6eyJzdWNjZXNzIjp0cnVlLCJ0eEhhc2giOiIweDIxMzU5M2JmMDBjZWNlYzdjMzQ3NTIzMGM4MTg4ZDYyNTRlNDZjMTEzYzlmOTQxZjk4YTFmODQ3NDkyZGMyNjEiLCJibG9ja051bWJlciI6IjMyNDk1MjM1IiwiYW1vdW50IjoiMTUwMDAwIiwicGF5ZXIiOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJwYXlUbyI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsImFzc2V0IjoiMHhjZkM4MzMwZjRCQ0FCNTI5YzYyNUQxMjc4MWIxQzE5NDY2QTlGYzhCIiwic2V0dGxlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1OC40OTRaIn0sInJlY2VpcHQiOnsiaW50ZW50SWQiOiIweGVkMDcxZTZlZGM1N2NmMDY4OWU4ZjFiMWFjZGE1NmY3ZWNiOTBjZmZmOTI4YTNkZTljYTFhODQyZTAwNDJjNjYiLCJpZGVtcG90ZW5jeUtleSI6IjB4YjI3YjhiNDk3NGRmZTMwZDQ4MmJmYzc2MjQ5NGU0MWQ1OTBhYmNmMDgxODllOTMwODM0Yjg3YzM1NjMyMWU4OCIsInJlcGxheSI6ZmFsc2UsImRlbGl2ZXJlZEF0IjoiMjAyNi0xMS0wOFQyMzo0Mzo1OC40OTRaIiwidmVyaWZpZXIiOiJwaGFyb3MtYXRsYW50aWMtbGl2ZS12ZXJpZmllciJ9fQ==",
+          "paymentSignatureHeaderSent": "eyJ4NDAyVmVyc2lvbiI6Miwic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoiZWlwMTU1OjY4ODY4OSIsInJlc291cmNlIjoiaHR0cDovLzEyNy4wLjAuMTo0MzE5L2FwaS94NDAyL3doYWxlLXRlbGVtZXRyeSIsInJlcXVpcmVtZW50c0VjaG8iOnsieDQwMlZlcnNpb24iOjIsInNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo2ODg2ODkiLCJhc3NldCI6IjB4Y2ZDODMzMGY0QkNBQjUyOWM2MjVEMTI3ODFiMUMxOTQ2NkE5RmM4QiIsInBheVRvIjoiMHhCMGY3NjgxNjY4ZjkxNmVFZDk3ZEEwNjZEMzFhQTI5NUQzNDcyN2MwIiwibWF4QW1vdW50UmVxdWlyZWQiOiIxNTAwMDAiLCJyZXNvdXJjZSI6Imh0dHA6Ly8xMjcuMC4wLjE6NDMxOS9hcGkveDQwMi93aGFsZS10ZWxlbWV0cnkiLCJkZXNjcmlwdGlvbiI6IlBoYXJvcyBBdGxhbnRpYyB0b3AtaG9sZGVyIGNvbmNlbnRyYXRpb24gYW5kIGxpcXVpZGl0eSBmbG93IGFuYWx5dGljcy4iLCJtaW1lVHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIiLCJjaGFpbklkIjo2ODg2ODksIm5vbmNlIjoiMHhjYjM0NWY1ODM1NzllZDU1OGQ1NTdlMTJmMWVjZGM5MjljMDI1MGVhNGUxYjNkMGI3YmFhNTdjMWE2MDRmODg0IiwiaWRlbXBvdGVuY3lLZXkiOiIweGIyN2I4YjQ5NzRkZmUzMGQ0ODJiZmM3NjI0OTRlNDFkNTkwYWJjZjA4MTg5ZTkzMDgzNGI4N2MzNTYzMjFlODgiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDgxZjMwMTJiNWQ2MzZhNjliNTRhNTdiMzQ4ODgxOWZmZDNkOWY1Njc2NmI2NGRjYWE2MDFhMmZlOTIzNWIxOGYiLCJhZHZlcnRpc2VkVXRpbGl0eSI6eyJ2YWx1ZVVTREMiOiIwLjMwIiwiZXhwZWN0ZWRTaWduYWxzIjoyMH19fSwiaW50ZW50SWQiOiIweGVkMDcxZTZlZGM1N2NmMDY4OWU4ZjFiMWFjZGE1NmY3ZWNiOTBjZmZmOTI4YTNkZTljYTFhODQyZTAwNDJjNjYiLCJhdXRob3JpemF0aW9uIjp7ImZyb20iOiIweDI5OUNlNDExM2FiRjg4RjQ5OTc3MzcxODRhYThBN2EzRDU4QUMxNUMiLCJ0byI6IjB4QjBmNzY4MTY2OGY5MTZlRWQ5N2RBMDY2RDMxYUEyOTVEMzQ3MjdjMCIsInZhbHVlIjoiMTUwMDAwIiwidmFsaWRBZnRlciI6IjE3OTQxODExMzYiLCJ2YWxpZEJlZm9yZSI6IjE3OTQxODIzMzYiLCJub25jZSI6IjB4MTkxNDg4MDcyOTc2ZDJlNDU1NTA2ZjZhMzQzODRiNDMwNGU3MWQ2Y2U0ZGFhMTVjY2Q0MGZmMmYyYWVlNjY3YiJ9LCJzaWduYXR1cmUiOiIweDZiNWZiNTk3ZGE0YTA4YWZjNTA0NjBlMTVhYTBhN2VmMTc4Mjc0YmQ2MGYzZjgzNDVlN2FmZGRkODlkM2Q5NjU3MjcyZDNiMTkwYTJmZmE2MGJhZWRiNDI3YmZjOTk0ZmY1ZTM3MThhZDU2ZmIzNTI2MmY0NWZiMDI0NmYzNDA2MWIiLCJ0eEhhc2giOiIweDIxMzU5M2JmMDBjZWNlYzdjMzQ3NTIzMGM4MTg4ZDYyNTRlNDZjMTEzYzlmOTQxZjk4YTFmODQ3NDkyZGMyNjEiLCJxdW90ZUNvbW1pdG1lbnQiOiIweDgxZjMwMTJiNWQ2MzZhNjliNTRhNTdiMzQ4ODgxOWZmZDNkOWY1Njc2NmI2NGRjYWE2MDFhMmZlOTIzNWIxOGYiLCJzZXR0bGVtZW50Q29tbWl0bWVudCI6IjB4MGIzMDRjY2IxNzY1ZDBhYzA3ZjMxOGFhYmFlNzllODM4N2VhNmI2ODI1ZThiZTVkMjcyMjlhNGQ3YWVlMTIwNiJ9"
+        }
+      ]
+    }
+  ],
+  "broadcasts": {
+    "attempted": 2,
+    "skippedViaJournal": 0
+  },
+  "faultsInjected": 1,
+  "startedAt": "2026-11-08T23:43:52.671Z",
+  "finishedAt": "2026-11-08T23:43:58.512Z",
+  "synthesis": {
+    "report": "DeFi Token Risk Due-Diligence Report",
+    "verdict": "ELEVATED RISK — position sizing should be reduced.",
+    "signals": [
+      "Contract risk score 59/100 (NEEDS_REMEDIATION) with 5 SWC-classified findings.",
+      "Top-10 holder concentration 82.71% with net liquidity flow -3450 USDC over the window."
+    ],
+    "sources": [
+      {
+        "endpoint": "Security Audit",
+        "txHash": "0xb77df71a854edc56bed1fe11bdb95ec02090aa51d294c4dfefac58576ee34e90",
+        "priceUSDC": "0.10"
+      },
+      {
+        "endpoint": "Whale Telemetry",
+        "txHash": "0x213593bf00cecec7c3475230c8188d6254e46c113c9f941f98a1f847492dc261",
+        "priceUSDC": "0.15"
+      }
+    ],
+    "refusedCalls": [],
+    "methodology": "x402 pay-per-signal: security-audit + whale-telemetry, ROI-ranked and budget-gated on Pharos Atlantic."
+  }
+}
